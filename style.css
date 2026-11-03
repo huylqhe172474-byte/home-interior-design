@@ -1,0 +1,642 @@
+/* =====================================
+   1. GENERAL SETTINGS
+===================================== */
+
+:root {
+    --color-ink: #26312b;
+    --color-muted: #59645c;
+    --color-paper: #f7f5ef;
+    --color-white: #ffffff;
+    --color-sand: #e8e1d4;
+    --color-olive: #66745b;
+    --color-olive-dark: #43513d;
+    --color-line: #d8d4ca;
+
+    --shadow-soft: 0 18px 45px rgba(38, 49, 43, 0.09);
+
+    --font-body: Arial, Helvetica, sans-serif;
+    --font-display: Georgia, "Times New Roman", serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: 1.65;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =====================================
+   2. SKIP TO MAIN CONTENT
+===================================== */
+
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+
+    padding: 0.8rem 1.1rem;
+
+    transform: translateY(-160%);
+
+    border-radius: 0.4rem;
+
+    background: var(--color-ink);
+    color: var(--color-white);
+
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+
+    outline: 3px solid #c58b45;
+    outline-offset: 3px;
+}
+
+
+/* =====================================
+   3. HEADER AND NAVIGATION
+===================================== */
+
+.site-header {
+    position: relative;
+    z-index: 2;
+
+    padding: 1.1rem 6vw;
+
+    border-bottom: 1px solid var(--color-line);
+
+    background: rgba(247, 245, 239, 0.96);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.brand {
+    color: var(--color-ink);
+
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-decoration: none;
+}
+
+.brand span {
+    color: var(--color-olive);
+}
+
+.site-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.site-nav a {
+    display: inline-block;
+
+    padding: 0.55rem 0.9rem;
+
+    border-radius: 999px;
+
+    color: var(--color-muted);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    transform: translateY(-2px);
+
+    background: var(--color-olive-dark);
+    color: var(--color-white);
+}
+
+.site-nav a[aria-current="page"] {
+    background: var(--color-sand);
+    color: var(--color-ink);
+}
+
+
+/* =====================================
+   4. GENERAL LAYOUT
+===================================== */
+
+main {
+    min-height: 65vh;
+}
+
+.container {
+    width: min(1120px, 88%);
+    margin: 0 auto;
+}
+
+.eyebrow {
+    margin: 0 0 0.8rem;
+
+    color: var(--color-olive-dark);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-ink);
+
+    font-family: var(--font-display);
+    font-weight: 400;
+
+    line-height: 1.12;
+}
+
+h1 {
+    margin: 0 0 1.2rem;
+
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
+    letter-spacing: -0.045em;
+}
+
+h2 {
+    margin: 0 0 1rem;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+h3 {
+    margin: 0.7rem 0 0.45rem;
+
+    font-size: 1.5rem;
+}
+
+p {
+    color: var(--color-muted);
+}
+
+
+/* =====================================
+   5. HOME HERO SECTION - CSS GRID
+===================================== */
+
+.hero {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
+
+    align-items: center;
+
+    gap: clamp(2rem, 5vw, 5rem);
+
+    padding: 5rem 0 5.5rem;
+}
+
+.hero-copy {
+    max-width: 510px;
+}
+
+.hero-copy > p:not(.eyebrow) {
+    max-width: 460px;
+
+    margin-bottom: 1.8rem;
+
+    font-size: 1.08rem;
+}
+
+.button-link {
+    display: inline-block;
+
+    padding: 0.85rem 1.35rem;
+
+    border: 1px solid var(--color-olive-dark);
+    border-radius: 999px;
+
+    background: var(--color-olive-dark);
+    color: var(--color-white);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+    transform: translateY(-3px);
+
+    background: transparent;
+    color: var(--color-olive-dark);
+}
+
+
+/* =====================================
+   6. IMAGE BOX MODEL
+===================================== */
+
+.hero-image {
+    width: 100%;
+    height: 510px;
+
+    object-fit: cover;
+
+    border: 1px solid var(--color-line);
+    border-radius: 48% 48% 0.8rem 0.8rem;
+
+    padding: 0.55rem;
+
+    background: var(--color-white);
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* =====================================
+   7. HOME FEATURE SECTION
+===================================== */
+
+.section {
+    padding: 4.5rem 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+.section-heading p {
+    max-width: 430px;
+    margin: 0;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1.4rem;
+}
+
+.feature-card {
+    padding: 1rem;
+
+    border: 1px solid var(--color-line);
+    border-radius: 0.8rem;
+
+    background: var(--color-white);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    border: 1px solid var(--color-line);
+    border-radius: 0.55rem;
+
+    padding: 0.35rem;
+
+    transition:
+        transform 220ms ease,
+        filter 220ms ease;
+}
+
+.feature-card:hover img {
+    transform: scale(1.025);
+    filter: saturate(1.08);
+}
+
+.feature-card p {
+    margin-bottom: 0.2rem;
+
+    font-size: 0.94rem;
+}
+
+
+/* =====================================
+   8. GALLERY PAGE
+===================================== */
+
+.page-intro {
+    padding: 4.5rem 0 2rem;
+
+    text-align: center;
+}
+
+.page-intro p {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1.35rem;
+
+    padding: 1.5rem 0 5rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+
+    padding: 0.65rem;
+
+    border: 1px solid var(--color-line);
+    border-radius: 0.8rem;
+
+    background: var(--color-white);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+
+    border: 1px solid var(--color-line);
+    border-radius: 0.45rem;
+
+    padding: 0.3rem;
+
+    transition:
+        transform 250ms ease,
+        border-radius 250ms ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.035);
+}
+
+
+/* =====================================
+   9. NTH-CHILD SELECTOR
+===================================== */
+
+.gallery-item:nth-child(even) img {
+    border-radius: 2rem 0.45rem 2rem 0.45rem;
+}
+
+.gallery-item:nth-child(odd) img {
+    border-radius: 0.45rem 2rem 0.45rem 2rem;
+}
+
+.gallery-item p {
+    margin: 0.65rem 0.2rem 0.15rem;
+
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+}
+
+
+/* =====================================
+   10. ABOUT PAGE
+===================================== */
+
+.about-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 3.5rem;
+
+    padding: 3rem 0 5rem;
+}
+
+.about-layout img {
+    width: 100%;
+    height: 470px;
+
+    object-fit: cover;
+
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+
+    padding: 0.55rem;
+
+    background: var(--color-white);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.values-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.7rem;
+
+    margin-top: 1.5rem;
+}
+
+.values-list span {
+    padding: 0.55rem 0.85rem;
+
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+
+    color: var(--color-olive-dark);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   11. FOOTER
+===================================== */
+
+.site-footer {
+    padding: 2rem 6vw;
+
+    border-top: 1px solid var(--color-line);
+
+    background: #eeece4;
+
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+
+/* =====================================
+   12. KEYBOARD ACCESSIBILITY
+===================================== */
+
+a:focus-visible {
+    outline: 3px solid #a15d16;
+    outline-offset: 4px;
+}
+
+
+/* =====================================
+   13. RESPONSIVE DESIGN - TABLET
+===================================== */
+
+@media (max-width: 800px) {
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 0.8rem;
+    }
+
+    .hero,
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 3.5rem;
+    }
+
+    .hero-image {
+        height: 390px;
+    }
+
+    .feature-grid,
+    .gallery-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =====================================
+   14. RESPONSIVE DESIGN - MOBILE
+===================================== */
+
+@media (max-width: 520px) {
+
+    .site-header {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .site-nav ul {
+        gap: 0.2rem;
+    }
+
+    .site-nav a {
+        padding: 0.45rem 0.65rem;
+
+        font-size: 0.82rem;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .feature-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image,
+    .about-layout img {
+        height: 320px;
+    }
+
+    .gallery-item img {
+        height: 250px;
+    }
+}
+
+
+/* =====================================
+   15. REDUCED MOTION ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
