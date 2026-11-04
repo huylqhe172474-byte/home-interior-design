@@ -450,6 +450,14 @@ p {
     border-radius: 0.45rem 2rem 0.45rem 2rem;
 }
 
+.gallery-item:nth-child(even):hover img {
+    border-radius: 0.45rem;
+}
+
+.gallery-item:nth-child(odd):hover img {
+    border-radius: 2rem;
+}
+
 .gallery-item p {
     margin: 0.65rem 0.2rem 0.15rem;
 
